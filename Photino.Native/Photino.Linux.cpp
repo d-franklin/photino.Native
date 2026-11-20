@@ -210,7 +210,7 @@ Photino::Photino(PhotinoInitParams *initParams) : _webview(nullptr)
 	_parent = initParams->ParentInstance;
 
 	_window = gtk_window_new(GTK_WINDOW_TOPLEVEL);
-	_dialog = new PhotinoDialog();
+	_dialog = new PhotinoDialog(this);
 
 	if (initParams->FullScreen)
 		SetFullScreen(true);

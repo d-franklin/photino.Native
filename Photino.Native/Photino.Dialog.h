@@ -41,8 +41,8 @@ enum class DialogIcon
 class PhotinoDialog
 {
 public:
-#ifdef _WIN32
-	PhotinoDialog(Photino *window);
+#if defined(_WIN32) || defined(__linux__)
+	explicit PhotinoDialog(Photino *window);
 #else
 	PhotinoDialog();
 #endif
@@ -61,6 +61,8 @@ protected:
 	NSImage *_warningIcon;
 #elif _WIN32
 	Photino *_window;
+#elif defined(__linux__)
+	Photino *_window = nullptr;
 #endif
 };
 
